@@ -255,5 +255,3 @@ pip install crawl4ai
 等 Playwright 的基礎打好了，再來學 Crawl4AI：
 
 - [開始 Crawl4AI 學習](./crawl4AI/初體驗/README.md)
-
-加油！現代爬蟲比傳統方法有趣多了。
