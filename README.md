@@ -2,6 +2,16 @@
 
 > 這份講義涵蓋現代網路爬蟲的核心技術，從基礎到實戰應用
 
+## 開始學習
+
+準備好了嗎？建議從這裡開始：
+
+- [開始 Playwright 學習](./playwright/第01章_Playwright簡介/README.md)
+
+等 Playwright 的基礎打好了，再來學 Crawl4AI：
+
+- [開始 Crawl4AI 學習](./crawl4AI/初體驗/README.md)
+
 ## 為什麼要學現代爬蟲？
 
 以前寫爬蟲的時候，大部分網站都是靜態 HTML，用 `requests` + `BeautifulSoup` 就能搞定。但現在情況完全不同了：
@@ -246,12 +256,4 @@ pip install crawl4ai
 
 ---
 
-## 開始學習
 
-準備好了嗎？建議從這裡開始：
-
-- [開始 Playwright 學習](./playwright/第01章_Playwright簡介/README.md)
-
-等 Playwright 的基礎打好了，再來學 Crawl4AI：
-
-- [開始 Crawl4AI 學習](./crawl4AI/初體驗/README.md)
