@@ -116,84 +116,100 @@ await main() # ipynb檔執行
 
 **說明**：每個「網路請求」並行執行，總耗時為最長任務的 3 秒。
 
-## 5. ‼️重要觀念
-asyncio 非常核心且重要的觀念。
+## 5. ‼️ 重要觀念：`asyncio` 的核心思想
 
-### 1. 呼叫 async def 函數得到的是「協程物件」，而不是結果
-在傳統的同步 (synchronous) Python 程式中，當你呼叫一個函數時，程式會立即進入該函數執行，直到函數 return 結果為止。
+`asyncio` 的運作模式與傳統同步程式碼有很大的不同，理解其核心觀念至關重要。
 
-然而，在非同步 (asynchronous) 程式中，當你呼叫一個用 async def 定義的函數時，它並不會馬上執行裡面的程式碼。相反地，它會立即回傳一個 協程物件 (coroutine object)。
+### 1. 呼叫 `async def` 函數得到的是「協程物件」，而不是結果
 
-你可以把這個協程物件想像成一個「任務的執行計畫」或「食譜」。
+在傳統的同步 (synchronous) Python 程式中，當你呼叫一個函數時，程式會立即執行該函數，並等待其回傳結果。
 
-fetch_data(url, delay)：這就像是準備好一張寫著「去某個 url 拿資料，中間要等 delay 秒」的食譜。你只是拿到了這張食譜，但還沒有開始動手做菜。
-tasks = [...]：這行程式碼就是把多張這樣的「食譜」（多個協程物件）搜集成一個列表 tasks。
+然而，在非同步 (asynchronous) 程式中，當你呼叫一個用 `async def` 定義的函數時，它並**不會**馬上執行。相反地，它會立即回傳一個 **協程物件 (coroutine object)**。
 
-所以，當 tasks = [fetch_data(url, delay) for url, delay in urls] 這行執行完畢時，你得到的 tasks 是一個像下面這樣的列表，裡面裝滿了待執行的「計畫」，但沒有任何一個計畫被真正啟動。
+> **比喻：** 你可以把這個協程物件想像成一份「任務的執行計畫」或一本「食譜」。
+>
+> *   `fetch_data(url, delay)`：這就像是拿到一張寫著「去某個 URL 拿資料，中間要等 `delay` 秒」的食譜。你只是拿到了食譜，但還沒有開始動手做菜。
+> *   `tasks = [...]`：這行程式碼則是把多張「食譜」（多個協程物件）搜集起來，放進一個 `tasks` 列表中。
 
-```
-[<coroutine object fetch_data at 0x...>, <coroutine object fetch_data at 0x...>, ...]
+所以，當 `tasks = [fetch_data(url, delay) for url, delay in urls]` 這行執行完畢時，你得到的 `tasks` 是一個像下面這樣的列表，裡面裝滿了待執行的「計畫」，但沒有任何一個計畫被真正啟動。
+
+```python
+# tasks 列表的內容
+[
+  <coroutine object fetch_data at 0x...>,
+  <coroutine object fetch_data at 0x...>,
+  ...
+]
 ```
 
 ### 2. 如何「執行」這些計畫？
 
-這些「計畫」（協程物件）需要被提交給事件迴圈 (Event Loop) 來執行。事件迴圈就像一個總指揮官，它會負責調度所有任務。
+這些「計畫」（協程物件）本身不會做任何事，它們需要被提交給 **事件迴圈 (Event Loop)** 來執行。事件迴圈就像一個總指揮官，負責有效率地調度所有任務。
 
-範例程式碼中，執行這些任務的指令是這一行：
+在範例程式碼中，執行這些任務的指令是：
 
 ```python
 results = await asyncio.gather(*tasks)
-
-===說明===
-
-asyncio.gather(*tasks)：這個函數的功能就是告訴事件迴圈：「嘿，我這裡有一堆任務 (tasks 列表)，請你『同時』去執行它們。」
-
-await：這個關鍵字則是告訴 main 函數：「請在這裡暫停，直到 asyncio.gather 把所有任務都完成後，再繼續往下走。」
-
 ```
+
+> #### **語法說明**
+>
+> *   `asyncio.gather(*tasks)`：這個函數的功能就是告訴事件迴圈：「嘿，我這裡有一堆任務 (`tasks` 列表)，請你『同時』(concurrently) 去執行它們。」
+> *   `await`：這個關鍵字則是告訴 `main` 函數：「請在這裡暫停，直到 `asyncio.gather` 把所有任務都處理完畢後，再把結果帶回來，然後才繼續往下執行。」
 
 ### 3. 流程總結
 
-#### 1. 定義一個「協程函數」，這是一個任務的藍圖。
-```
+讓我們將整個流程串起來：
+
+#### **步驟 1：定義「協程函數」(任務的藍圖)**
+這是一個非同步函數，定義了任務的具體步驟。
+
+```python
 async def fetch_data(url, delay):
-    print(f"開始抓取 {url}") # 這行在 gather 執行後才會印出
+    # 這行在 gather 執行後才會印出
+    print(f"開始抓取 {url}")
     await asyncio.sleep(delay)
     print(f"完成抓取 {url}")
     return f"資料來自 {url}"
 ```
 
+#### **步驟 2：建立「協程物件」列表 (準備所有計畫)**
+呼叫 `fetch_data` 並不會執行它，只是建立一個個「計畫」（協程物件）並將它們收集到一個列表中。
 
-#### 2. 呼叫 fetch_data，但只會得到「協程物件」(執行的計畫)。
-
-這裡只是在建立計畫列表，尚未執行任何 print 或 sleep。
-
+```python
+# 這裡只是在建立計畫列表，尚未執行任何 print 或 sleep
 tasks = [fetch_data(url, delay) for url, delay in urls]
 
 print(f"已建立 {len(tasks)} 個任務計畫，準備交給事件迴圈執行。")
+```
 
-#### 3. 使用 asyncio.gather 將所有任務計畫提交給事件迴圈。
-事件迴圈開始執行後，才會真正進入 fetch_data 函數，並印出 "開始抓取..."。 
+#### **步驟 3：提交任務給事件迴圈並等待結果**
+使用 `await asyncio.gather()` 將所有任務計畫一次性地提交給事件迴圈。事件迴圈接收到任務後，才真正開始執行 `fetch_data` 函數內的程式碼。
 
-當遇到 await asyncio.sleep() 時，事件迴圈會聰明地切換到其他未完成的任務。
+> 當執行到 `await asyncio.sleep()` 時，事件迴圈會聰明地將控制權交給其他尚未完成的任務，而不是原地空等。這就是非同步的效率所在。
 
+```python
 results = await asyncio.gather(*tasks)
 
 print("所有資料：", results)
-
-#### 4. 啟動整個非同步程式，運行 main 協程。
-
 ```
+
+#### **步驟 4：啟動整個非同步程式**
+使用 `asyncio.run()` 來啟動 `main` 這個主協程，從而啟動整個事件迴圈。
+
+```python
 asyncio.run(main())
 ```
 
-簡單來說：
-
-fetch_data(url, delay) 創造了一個「待辦事項」。 tasks = [...] 則是把所有「待辦事項」整理成一個清單。 await asyncio.gather(*tasks) 才是真正把這份清單交給經理（事件迴圈）去執行。
-
-這個「延遲執行」的特性正是 asyncio 強大的地方，它允許我們先把所有 I/O 密集型的任務都規劃好，然後一次性地交給事件迴圈去並行處理，從而大大提升程式效率。
-
 ---
+
+> ### **簡單來說：**
+>
+> 1.  `fetch_data(url, delay)`：創造一個「待辦事項」。
+> 2.  `tasks = [...]`：將所有「待辦事項」整理成一份清單。
+> 3.  `await asyncio.gather(*tasks)`：才是真正把這份清單交給經理（事件迴圈）去有效率地執行。
+>
+> 這個「延遲執行」的特性正是 `asyncio` 強大的地方。它允許我們先把所有 I/O 密集型的任務都規劃好，然後一次性地交給事件迴圈去並行處理，從而大大提升程式效率。
 
 
 #### ‼️重要觀念
