@@ -258,18 +258,44 @@
 ## 附錄
 
 ### A. 常用 Playwright API 速查表
-- 常用方法與參數說明
+- [Playwright Python API 參考](https://playwright.dev/python/docs/api/class-playwright)
+- [頁面操作 API](https://playwright.dev/python/docs/api/class-page)
+- [元素定位器 API](https://playwright.dev/python/docs/api/class-locator)
 
 ### B. CSS 選擇器與 XPath 對照表
-- 選擇器語法對照參考
+- [CSS 選擇器官方指南](https://developer.mozilla.org/zh-TW/docs/Web/CSS/CSS_Selectors)
+- [XPath 語法參考](https://developer.mozilla.org/zh-TW/docs/Web/XPath)
+- [Playwright 定位器策略](https://playwright.dev/python/docs/locators)
 
 ### C. 常見錯誤與解決方案
-- 疑難排解指南
+- [Playwright 疑難排解指南](https://playwright.dev/python/docs/troubleshooting)
+- [常見問題 FAQ](https://playwright.dev/python/docs/intro#known-issues)
+- [調試技巧](https://playwright.dev/python/docs/debug)
 
 ### D. 學習資源推薦
-- 官方文件
-- 社群資源
-- 進階教學
+#### 官方資源
+- [Playwright 官方網站](https://playwright.dev/)
+- [Python 版本文件](https://playwright.dev/python)
+- [快速入門教學](https://playwright.dev/python/docs/intro)
+- [範例程式碼庫](https://github.com/microsoft/playwright-python/tree/main/examples)
+- [官方 YouTube 頻道](https://www.youtube.com/channel/UC46Zj8pDH5tDosqm1gd7WTg)
+
+#### 相關技術文件
+- [W3C WebDriver 規範](https://w3c.github.io/webdriver/)
+- [Chromium DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/)
+- [Firefox Remote Debugging](https://firefox-source-docs.mozilla.org/devtools/backend/protocol.html)
+
+#### 社群資源
+- [GitHub Issues](https://github.com/microsoft/playwright-python/issues)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/playwright)
+- [Discord 社群](https://discord.gg/playwright-840196519495999508)
+- [Reddit 討論區](https://www.reddit.com/r/playwright/)
+
+#### 進階學習
+- [測試最佳實踐](https://playwright.dev/python/docs/best-practices)
+- [CI/CD 整合指南](https://playwright.dev/python/docs/ci)
+- [Docker 部署](https://playwright.dev/python/docs/docker)
+- [效能調優指南](https://playwright.dev/python/docs/browsers#performance)
 
 ---
 
