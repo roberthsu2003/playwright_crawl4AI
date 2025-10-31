@@ -1,0 +1,10 @@
+[project]
+name = "playwright-crawl4ai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=7.1.0",
+    "playwright>=1.55.0",
+]
