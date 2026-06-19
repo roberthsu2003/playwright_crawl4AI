@@ -1,9 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(python -c \"from playwright.sync_api import sync_playwright; print\\('Playwright 可用'\\)\")",
+      "Bash(playwright --version)",
+      "Read(//Users/roberthsu2003/Library/Caches/ms-playwright/**)"
     ],
     "deny": [],
     "ask": []
+  },
+  "enabledPlugins": {
+    "webwright@webwright": true
   }
 }

@@ -1,0 +1,33 @@
+[15:25:51] CP1: 導航 Google Flights
+[15:25:52] CP2: 出發地 Seattle
+[15:25:56]   → 選擇 (Seattle): Seattle, Washington, USACity in Washington State.Showing 1 nearby loca
+[15:25:57] CP3: 目的地 JFK
+[15:25:57]   Where to input[2] aria='Where to? '
+[15:26:01]   → 選擇 (JFK): John F. Kennedy International AirportJFKInternational airport in Queen
+[15:26:01] CP4: 點擊 Departure (force=True)
+[15:26:03] CP5: 點擊 Aug 15
+[15:26:04] CP6: 點擊 Aug 20
+[15:26:05] CP7: 點擊 Done
+[15:26:05]   Done 點擊成功
+[15:26:05] CP8: 搜尋
+[15:26:05] CP9: 等待結果 (15s)
+[15:26:20] CP10: 擷取價格
+[15:26:20] 所有價格: ['$1', '$5', '$7,041', '$5,608', '$4,113', '$5,606', '$2,783', '$5,841', '$3,329', '$5,727', '$8,961', '$2,573', '$3,262', '$3,066', '$0', '$2', '$3', '$4', '$6', '$7', '$14', '$8', '$9', '$10', '$11', '$12,761', '$6,867', '$10,513', '$8,531', '$7,757', '$4,641', '$9,354', '$7,255', '$7,980', '$3,667', '$12,024', '$5,744', '$8,485', '$4,949', '$9,562', '$5,308', '$11,361', '$4,498', '$13,458', '$5,974', '$10,005', '$3,167', '$13,838', '$5,972', '$18,714', '$2,029', '$11,368', '$6,770', '$22,686', '$5,186', '$57,049', '$4,259', '$3,178', '$15,579', '$6,175', '$29,258', '$4,580', '$5,290', '$16,130', '$9,287', '$20,809', '$6,375', '$4,616', '$12,235', '$4,369', '$3,985', '$10,228', '$5,565', '$15,244', '$7,470', '$25,022', '$3,879', '$16,149', '$5,468', '$17,663', '$15,682', '$9,500', '$6,686', '$5,323', '$8,897', '$4,754', '$20,699', '$2,472', '$13,629', '$4,328', '$13,584', '$4,676', '$28,768', '$3,131', '$24,477', '$6,862', '$12,372', '$5,632', '$8,930', '$7,230', '$12', '$13', '$14,927', '$25,687', '$10,450', '$28,015', '$14,693', '$8,518', '$10,947', '$13,742', '$17,701', '$17,550', '$11,748', '$13,489', '$11,802', '$17,613', '$10,735', '$17,384', '$18,255', '$10,355', '$10,576', '$15,076', '$13,724', '$22,165', '$21,975', '$20,789', '$9,943', '$18,429', '$31,456', '$19,517', '$19,592', '$25,556', '$22,507', '$18,287', '$46,181', '$24,097', '$25,415', '$34,024']
+[15:26:20] 有效機票價格: [2029, 2472, 2573, 2783, 3066, 3131, 3167, 3178, 3262, 3329, 3667, 3879, 3985, 4113, 4259, 4328, 4369, 4498, 4580, 4616, 4641, 4676, 4754, 4949]
+[15:26:20] === 最低票價: $2,029 ===
+[15:26:20]   _.Ed=function(a){return/^[\s\xa0]*$/.test(a)};_.Fd=function(a){a&&typeof a.dispose=="function"&&a.dispose()};_.Gd=functi
+[15:26:20]   var Qd;_.Od=function(a){var b=a.length;if(b>0){let c=Array(b);for(let d=0;d<b;d++)c[d]=a[d];return c}return[]};Qd=functi
+[15:26:20]   var $d,le,oe,Zd,ae,ge;_.Xd=function(a){if(a==null)return a;if(typeof a==="string"&&a)a=+a;else if(typeof a!=="number")re
+[15:26:20]   _.ee=function(a){if(a instanceof _.ce)return a.i;throw Error("x");};_.fe=function(a){if(a instanceof _.Sd)return a.i;thr
+[15:26:20]   le=class extends _.P{constructor(a){super(a)}ec(a){return _.N(this,24,a)}};_.me=function(){return _.C(_.hd,le,1)};_.ne=f
+[15:26:20]   var Ue,$e,af,Ve;_.Te=function(a,b){b=_.Aa(a,b);var c;(c=b>=0)&&Array.prototype.splice.call(a,b,1);return c};Ue=function(
+[15:26:20]   $e=function(a,b,c,d,e){this.listener=a;this.proxy=null;this.src=b;this.type=c;this.capture=!!d;this.Jd=e;this.key=++Ze;t
+[15:26:20]   this.timeStamp=a.timeStamp;this.Wb=a;a.defaultPrevented&&_.Ye.X.preventDefault.call(this)};_.Ye.prototype.stopPropagatio
+[15:26:20]   var $f,bg,fg;$f=function(a,b,c){return arguments.length<=2?Array.prototype.slice.call(a,b):Array.prototype.slice.call(a,
+[15:26:20]   var Jg=function(){for(var a;a=Fg.remove();){try{a.i.call(a.scope)}catch(b){_.ka(b)}Gg(Hg,a)}Ig=!1},Gg=function(a,b){a.v(
+[15:26:20]   _.Tg.prototype.then=function(a,b,c){return Xg(this,(0,_.Kd)(typeof a==="function"?a:null),(0,_.Kd)(typeof b==="function"
+[15:26:20]   var Zg=function(a,b){if(a.i==0)if(a.o){var c=a.o;if(c.j){var d=0,e=null,f=null;for(let g=c.j;g&&(g.A||(d++,g.i==a&&(e=g)
+[15:26:20]   g,h)}catch(k){h(k)}},bh=function(a){a.B||(a.B=!0,Pg(a.F,a))},$g=function(a){var b=null;a.j&&(b=a.j,a.j=b.next,b.next=nul
+[15:26:20]   var uh,vh,wh,Bh,Ch,Jh,Lh,Mh,Ph,Rh,Sh,xh,Th,yh,Vh,Wh,Xh,Yh,Zh,$h,ai,bi,ci,di,ei,fi,gi,hi,ii,ji;uh=function(a,b,c){_.x.cal
+[15:26:20]   Bh=function(a,b){_.U.call(this);this.i=a;this.o=Ah(this.i);this.C=b||100;this.v=_.of(a,"resize",this.A,!1,this)};Ch=func
+[15:26:20] CP11: 完成

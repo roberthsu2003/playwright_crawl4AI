@@ -1,0 +1,5 @@
+[15:08:37] CP1: 啟動 Chromium headless 瀏覽器
+[15:08:38] CP2: 導航到 https://example.com
+[15:08:38] CP3: 截圖並儲存
+[15:08:38] CP4: 頁面標題 = 'Example Domain'
+[15:08:38] CP5: 任務完成

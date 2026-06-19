@@ -1,0 +1,22 @@
+[15:28:25] CP1: 導航 Google Flights
+[15:28:26] CP2: 出發地 Seattle
+[15:28:30]   → 選擇 (Seattle): Seattle, Washington, USACity in Washington State.Showing 1 nearby loca
+[15:28:30] CP3: 目的地 JFK
+[15:28:34]   → 選擇 (JFK): John F. Kennedy International AirportJFKInternational airport in Queen
+[15:28:35] 目的地欄位值: 'New York'
+[15:28:35]   input[0] aria='Where from?' val='Seattle'
+[15:28:35]   input[2] aria='Where to? New York JFK' val='New York'
+[15:28:35]   input[4] aria='Departure' val=''
+[15:28:35]   input[5] aria='Return' val=''
+[15:28:35] CP4: 開啟日期選擇器
+[15:28:35]   Departure 欄位已點擊
+[15:28:36] CP5: 選日期 Aug 15 → Aug 20
+[15:28:38] CP6: Done
+[15:28:38]   Done 點擊
+[15:28:39] CP7: 點擊 Search 按鈕
+[15:28:39]   找到按鈕: 'Explore'
+[15:28:39]   已點擊: 'Explore'
+[15:28:39] CP8: 等待結果 (15s)
+[15:28:54] 目前 URL: https://www.google.com/travel/explore?tfs=CBwQAxoaEgoyMDI2LTA4LTE1agwIAhIIL20vMGQ5anIaGhIKMjAyNi0wOC0yMHIMCAISCC9tLzBkOWpyQAFIAXABggELCP___________wGY
+[15:28:54] CP9: 擷取航班清單
+[15:28:54] CP10: 完成

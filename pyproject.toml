@@ -10,3 +10,8 @@ dependencies = [
     "nest-asyncio>=1.6.0",
     "playwright>=1.55.0",
 ]
+
+[tool.uv.workspace]
+members = [
+    "Webwright",
+]
