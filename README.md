@@ -91,6 +91,19 @@ crawl4ai-doctor
 
 ---
 
+## 什麼是Webwright?
+
+[Webwright](./webwright/README.md) 是整合在 Claude Code 中、基於 Playwright 的**網頁自動化助手**。它能讓您用**自然語言**來指揮瀏覽器執行各種操作，並以「程式即動作（code-as-action）」的模式完成任務。
+
+### 主要特色：
+- 🤖 **自然語言操作**：不需要手寫複雜的 Python 腳本，只需用中文或英文描述您的需求（例如：「前往 Google 搜尋特定關鍵字並擷取前三名網址」），它就會自動編寫代碼並操作瀏覽器。
+- 📸 **自動截圖存證**：在執行每個關鍵步驟時，會自動截圖並保存至 `final_runs/run_<id>/` 目錄，方便驗證執行結果與排錯。
+- ⚙️ **支援兩種模式**：
+  - `/webwright`：用於快速執行一次性的網頁自動化或爬蟲任務。
+  - `/webwright:craft`：用來封裝、製作可重複使用的參數化爬蟲腳本。
+
+---
+
 ## Playwright 課程
 
 **官方網站**: [https://playwright.dev/](https://playwright.dev/)
