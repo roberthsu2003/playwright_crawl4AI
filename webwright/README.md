@@ -12,9 +12,15 @@ Webwright 是整合在 Claude Code 中的 Playwright 瀏覽器自動化工具，
 
 **使用方式**：在 Claude Code 對話中直接描述任務：
 
-```
-/webwright 前往 Google Flights，搜尋 8/15 從西雅圖飛往紐約的最低票價
-```
+* **簡單範例（資料查詢）**：
+  ```
+  /webwright 前往臺灣銀行牌告匯率官網，查詢並回報最新的美金現鈔買入與賣出匯率
+  ```
+
+* **複雜範例（多步驟操作）**：
+  ```
+  /webwright 前往 Google Flights，搜尋 8/15 從西雅圖飛往紐約的最低票價
+  ```
 
 Claude 會：
 1. 啟動本機 Playwright Chromium 瀏覽器
