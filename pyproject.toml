@@ -11,7 +11,3 @@ dependencies = [
     "playwright>=1.55.0",
 ]
 
-[tool.uv.workspace]
-members = [
-    "Webwright",
-]

@@ -31,6 +31,18 @@
 
 ### 安裝步驟
 
+#### uv+pyproject.toml 環境
+```bash
+uv sync
+uv run playwright install chromium #安裝chromium,是安裝在電腦,非虛擬環境
+uv run playwright install firefox #安裝firefox,是安裝在電腦,非虛擬環境
+uv pip install --upgrade crawl4ai #安裝和更新crawl4ai,是安裝在虛擬環境
+uv run crawl4ai-setup #執行crawl4ai後續設定
+uv run crawl4ai-doctor #檢查crawl4ai是否安裝成功
+```
+
+#### 一般環境
+
 ```bash
 # 1. 安裝 Playwright
 pip install playwright
@@ -45,6 +57,7 @@ crawl4ai-setup
 # 4.Verify your installation
 crawl4ai-doctor
 ```
+
 
 詳細安裝說明：
 - [Playwright 安裝指南](./playwright/第01章_Playwright簡介/README.md)
