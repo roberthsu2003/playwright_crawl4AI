@@ -18,3 +18,4 @@ with sync_playwright() as p:
     page.screenshot(path="ptt_screenshot.png", full_page=True)
     print("截圖已儲存: ptt_screenshot.png")
     browser.close()
+    

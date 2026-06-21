@@ -8,6 +8,7 @@ dependencies = [
     "crawl4ai>=0.7.7",
     "ipykernel>=7.1.0",
     "nest-asyncio>=1.6.0",
+    "notebook>=7.6.0",
     "playwright>=1.55.0",
 ]
 
