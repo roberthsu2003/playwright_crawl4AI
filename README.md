@@ -6,7 +6,7 @@
 
 - [快速開始](#快速開始)
 - [為什麼要學現代爬蟲](#為什麼要學現代爬蟲)
-- [Webwright](#webwright)
+- [Webwright](./webwright/README.md) | [使用 Webwright 進行快速自動化](./webwright/README.md)
 - [Playwright 課程](#playwright-課程)
 - [Crawl4AI 課程](#crawl4ai-課程)
 - [Playwright vs Crawl4AI 比較](#playwright-vs-crawl4ai-比較)
@@ -92,9 +92,9 @@ crawl4ai-doctor
 
 ---
 
-## 什麼是Webwright?
+## Webwright
 
-[Webwright](./webwright/README.md) 
+[查看 Webwright 使用說明](./webwright/README.md)
 
 - 是整合在 Claude Code 中、基於 Playwright 的**網頁自動化助手**。它能讓您用**自然語言**來指揮瀏覽器執行各種操作，並以「程式即動作（code-as-action）」的模式完成任務。
 
