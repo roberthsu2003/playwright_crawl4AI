@@ -271,6 +271,47 @@ def visual_regression_test():
 
 ---
 
+## 🌐 真實網站範例：維基百科截圖
+
+在維基百科臺灣條目上示範全頁截圖、元素截圖和資訊框截圖。
+
+```python
+from playwright.sync_api import sync_playwright
+from pathlib import Path
+
+out_dir = Path("output")
+out_dir.mkdir(exist_ok=True)
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+
+    print("=== 全頁截圖 ===")
+    page.goto("https://zh.wikipedia.org/wiki/臺灣", timeout=15000)
+    page.wait_for_load_state("domcontentloaded")
+    page.screenshot(path=str(out_dir / "wikipedia_full.png"), full_page=True)
+    print("已儲存: wikipedia_full.png")
+
+    print("\n=== 元素截圖 ===")
+    heading = page.locator("#firstHeading")
+    heading.screenshot(path=str(out_dir / "heading.png"))
+    print(f"已儲存: heading.png ({heading.inner_text()})")
+
+    print("\n=== 資訊框截圖 ===")
+    info_box = page.locator("table.infobox").first
+    info_box.screenshot(path=str(out_dir / "infobox.png"))
+    print("已儲存: infobox.png")
+
+    browser.close()
+```
+
+**執行方式：**
+```bash
+uv run python playwright/第08章_截圖與錄影/real_example.py
+```
+
+---
+
 ## 練習題
 
 1. 截取你常用網站的首頁（全頁面截圖）

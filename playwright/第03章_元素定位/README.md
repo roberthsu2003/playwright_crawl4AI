@@ -269,6 +269,53 @@ def element_location_demo():
 
 ---
 
+## 🌐 真實網站範例：PTT 文章定位
+
+使用四種不同的元素定位技巧，在 PTT 八卦版上擷取文章資訊。
+
+```python
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+    page.goto("https://www.ptt.cc/bbs/Gossiping/index.html")
+    page.wait_for_selector("button.btn-big", timeout=10000)
+    page.get_by_role("button", name="我同意，我已年滿十八歲").click()
+    page.wait_for_selector("div.r-ent", timeout=10000)
+
+    print("=== CSS 選擇器 ===")
+    titles = page.locator("div.title a").all()
+    for t in titles[:3]:
+        print(f"  {t.inner_text()}")
+
+    print("\n=== get_by_role ===")
+    links = page.get_by_role("link").all()
+    for link in links[:5]:
+        text = link.inner_text().strip()
+        if text:
+            print(f"  {text}")
+
+    print("\n=== XPath ===")
+    xpath_titles = page.locator("//div[@class='title']/a").all()
+    for t in xpath_titles[:3]:
+        print(f"  {t.inner_text()}")
+
+    print("\n=== 取得連結屬性 ===")
+    for t in titles[:3]:
+        href = t.get_attribute("href")
+        print(f"  {t.inner_text()} -> {href}")
+
+    browser.close()
+```
+
+**執行方式：**
+```bash
+uv run python playwright/第03章_元素定位/real_example.py
+```
+
+---
+
 ## 練習題
 
 1. **修改 index.py**：取消註解其他定位方法（CSS 選擇器、XPath），測試不同的定位方式

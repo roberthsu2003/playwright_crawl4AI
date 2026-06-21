@@ -252,6 +252,46 @@ page.wait_for_load_state("networkidle")
 
 ---
 
+## 🌐 真實網站範例：維基百科等待策略
+
+在維基百科上展示三種不同的等待方式：`wait_for_load_state`、`wait_for_selector` 和 `expect_navigation`。
+
+```python
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+
+    page.goto("https://zh.wikipedia.org")
+    page.fill("input#searchInput", "Python")
+    page.keyboard.press("Enter")
+    page.wait_for_load_state("networkidle")
+    print(f"[networkidle] 標題: {page.title()}")
+
+    page.goto("https://zh.wikipedia.org")
+    page.fill("input#searchInput", "Playwright")
+    page.keyboard.press("Enter")
+    page.wait_for_selector("#firstHeading", timeout=10000)
+    heading = page.locator("#firstHeading").inner_text()
+    print(f"[wait_for_selector] 找到: {heading}")
+
+    page.goto("https://zh.wikipedia.org")
+    page.fill("input#searchInput", "自動化測試")
+    with page.expect_navigation():
+        page.keyboard.press("Enter")
+    print(f"[expect_navigation] 標題: {page.title()}")
+
+    browser.close()
+```
+
+**執行方式：**
+```bash
+uv run python playwright/第04章_等待與同步/real_example.py
+```
+
+---
+
 ## 練習題
 
 1. 訪問一個動態網站，練習使用 `wait_for_selector()`

@@ -209,6 +209,43 @@ if __name__ == "__main__":
 
 ---
 
+## 🌐 真實網站範例：維基百科搜尋
+
+在維基百科搜尋「臺灣」，展示頁面導航、表單填寫、元素內容擷取和返回操作。
+
+```python
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+
+    page.goto("https://zh.wikipedia.org")
+    page.fill("input#searchInput", "臺灣")
+    page.keyboard.press("Enter")
+    page.wait_for_load_state("networkidle")
+    print(f"頁面標題: {page.title()}")
+
+    first_heading = page.locator("#firstHeading").inner_text()
+    print(f"搜尋主題: {first_heading}")
+
+    content = page.locator("#mw-content-text p").first.inner_text()
+    print(f"摘要: {content[:100]}...")
+
+    page.go_back()
+    page.wait_for_load_state("networkidle")
+    print(f"返回首頁: {page.title()}")
+
+    browser.close()
+```
+
+**執行方式：**
+```bash
+uv run python playwright/第02章_基礎操作/real_example.py
+```
+
+---
+
 ## 練習題
 
 1. 訪問一個網站並刷新頁面 3 次
