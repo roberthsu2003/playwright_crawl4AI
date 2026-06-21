@@ -5,8 +5,8 @@
 ## 📚 目錄
 
 - [快速開始](#快速開始)
-- [Webwright](#webwright)
 - [為什麼要學現代爬蟲](#為什麼要學現代爬蟲)
+- [Webwright](#webwright)
 - [Playwright 課程](#playwright-課程)
 - [Crawl4AI 課程](#crawl4ai-課程)
 - [Playwright vs Crawl4AI 比較](#playwright-vs-crawl4ai-比較)
