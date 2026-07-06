@@ -4,7 +4,161 @@ Webwright 是整合在 Claude Code 中的 Playwright 瀏覽器自動化工具，
 
 ---
 
+## 專案層級 Skill 安裝說明 (OpenCode)
+
+你可以將 Webwright 作為專案層級的 Skill 安裝到你的 OpenCode 專案中。以下是 Mac 和 Windows 的安裝步驟：
+
+### 事前準備 (Prerequisites)
+
+Webwright 底層依賴 Playwright 執行瀏覽器自動化，因此在使用 Webwright 之前，**必須**先安裝 Playwright 瀏覽器二進位檔。
+
+1. **安裝 Python `playwright` 套件**：
+   在你的 Python 虛擬環境中，安裝 Webwright 與 Playwright 依賴：
+   ```bash
+   pip install playwright
+   # 或者當你安裝 Webwright 時，此套件會作為依賴項自動下載。
+   ```
+
+2. **安裝 Playwright 瀏覽器二進位檔**（⚠️ **最重要，若未執行此步驟，Webwright 會因找不到瀏覽器而報錯**）：
+   ```bash
+   # 安裝預設瀏覽器（Chromium, Firefox, WebKit）
+   playwright install
+   
+   # 或者只安裝常用的 Chromium 瀏覽器：
+   playwright install chromium
+   ```
+
+3. **Linux / Docker 環境**（選用）：
+   若在 Linux 伺服器或容器中執行，需要額外安裝作業系統層級的瀏覽器依賴庫：
+   ```bash
+   playwright install-deps
+   ```
+
+---
+
+### Mac / Linux 安裝步驟
+
+1. 進入你的專案目錄：
+   ```bash
+   cd 你的專案目錄
+   ```
+2. 建立 Skill 目錄：
+   ```bash
+   mkdir -p .opencode/skills
+   ```
+3. 將 Webwright 專案 Clone 到暫存目錄：
+   ```bash
+   git clone https://github.com/microsoft/Webwright.git /tmp/Webwright
+   ```
+4. 複製 webwright skill 到你的專案中：
+   ```bash
+   cp -R /tmp/Webwright/skills/webwright .opencode/skills/webwright
+   ```
+5. 清理暫存目錄：
+   ```bash
+   rm -rf /tmp/Webwright
+   ```
+
+---
+
+### Windows 安裝步驟
+
+你可以選擇使用 **PowerShell** 或 **CMD (命令提示字元)** 來執行指令。
+
+#### 方法 A：使用 PowerShell
+
+1. 進入你的專案目錄：
+   ```powershell
+   cd 你的專案目錄
+   ```
+2. 建立 Skill 目錄：
+   ```powershell
+   New-Item -ItemType Directory -Force -Path .opencode/skills
+   ```
+3. 將 Webwright 專案 Clone 到暫存目錄：
+   ```powershell
+   git clone https://github.com/microsoft/Webwright.git $env:TEMP/Webwright
+   ```
+4. 複製 webwright skill 到你的專案中：
+   ```powershell
+   Copy-Item -Recurse -Force -Path $env:TEMP/Webwright/skills/webwright -Destination .opencode/skills/webwright
+   ```
+5. 清理暫存目錄：
+   ```powershell
+   Remove-Item -Recurse -Force -Path $env:TEMP/Webwright
+   ```
+
+#### 方法 B：使用 CMD (命令提示字元)
+
+1. 進入你的專案目錄：
+   ```cmd
+   cd 你的專案目錄
+   ```
+2. 建立 Skill 目錄：
+   ```cmd
+   mkdir .opencode\skills
+   ```
+3. 將 Webwright 專案 Clone 到暫存目錄：
+   ```cmd
+   git clone https://github.com/microsoft/Webwright.git %TEMP%\Webwright
+   ```
+4. 複製 webwright skill 到你的專案中：
+   ```cmd
+   xcopy /E /I /Y %TEMP%\Webwright\skills\webwright .opencode\skills\webwright
+   ```
+5. 清理暫存目錄：
+   ```cmd
+   rmdir /S /Q %TEMP%\Webwright
+   ```
+
+---
+
+### 確認目錄結構
+
+安裝完成後，請確認你的專案目錄結構如下所示：
+
+```text
+你的專案/
+├── .opencode/
+│   └── skills/
+│       └── webwright/
+│           └── SKILL.md
+└── opencode.json
+```
+
+---
+
+### 配置 `opencode.json`
+
+在專案根目錄建立或修改 `opencode.json`，並加入以下配置以允許 OpenCode 使用該 Skill：
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "skill": {
+      "webwright": "allow"
+    },
+    "bash": "ask"
+  }
+}
+```
+
+---
+
+### 開始使用
+
+1. 重新進入 OpenCode：
+   ```bash
+   opencode
+   ```
+2. 在 OpenCode 中，你可以直接以自然語言命令它使用 Webwright：
+   > 使用 webwright 幫我自動操作瀏覽器，完成這個網站流程……
+
+---
+
 ## 兩種使用模式
+
 
 ### 1. `/webwright` — 一次性網頁任務
 
