@@ -34,10 +34,10 @@
 
 #### uv+pyproject.toml 環境
 ```bash
+uv add playwright crawl4ai
 uv sync
 uv run playwright install chromium #安裝chromium,是安裝在電腦,非虛擬環境
 uv run playwright install firefox #安裝firefox,是安裝在電腦,非虛擬環境
-uv pip install --upgrade crawl4ai #安裝和更新crawl4ai,是安裝在虛擬環境
 uv run crawl4ai-setup #執行crawl4ai後續設定
 uv run crawl4ai-doctor #檢查crawl4ai是否安裝成功
 ```
