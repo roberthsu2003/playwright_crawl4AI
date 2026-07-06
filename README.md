@@ -327,20 +327,5 @@ Crawl4AI 大量使用非同步編程，所以**一定要先看懂 asyncio**。�
 - [原始碼和 Issue](https://github.com/unclecode/crawl4ai/issues)
 - [使用範例](https://github.com/unclecode/crawl4ai/tree/main/examples)
 
-### 相關技術
-- [CSS 選擇器](https://developer.mozilla.org/zh-TW/docs/Web/CSS/CSS_Selectors)
-- [XPath 語法](https://developer.mozilla.org/zh-TW/docs/Web/XPath)
-- [Python Asyncio 文件](https://docs.python.org/3/library/asyncio.html)
 
-### 遇到問題？
 
-1. 先查各章節的 README，可能有解答
-2. 看看實際案例的程式碼，參考別人是怎麼寫的
-3. 檢查錯誤訊息，通常會提示問題在哪
-4. 查看官方文件的疑難排解部分
-
----
-
-## 授權資訊
-
-詳見 [LICENSE](./LICENSE) 文件
