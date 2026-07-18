@@ -43,39 +43,6 @@ flowchart LR
 
 ---
 
-## 資料夾架構
-
-```text
-playwright_crawl4AI/
-├── README.md                       # Repo 首頁與 Framework 導覽
-├── playwright/                     # 🎭 Playwright 學習路線
-│   ├── README.md                   # Playwright 課程總覽
-│   ├── 課程章節/                    # 第 01～12 章講義與範例
-│   ├── 實戰專案/                    # 12 個章節對應專案與 AI Prompt
-│   └── 延伸專案/                    # PTT、維基百科、高鐵綜合專案
-├── crawl4AI/                       # 🤖 Crawl4AI 學習路線
-│   ├── README.md                   # Crawl4AI 課程總覽
-│   ├── 課程章節/                    # 安裝、基礎、JS、多頁面、排程
-│   ├── 實戰專案/                    # 匯率、股票與 GUI 專案
-│   └── 部署/                        # Docker 與部署資源
-├── 基礎課程/
-│   └── asyncio/                   # Crawl4AI 所需的 async/await 基礎
-├── tools/
-│   └── webwright/                 # 自然語言瀏覽器自動化工具
-├── docs/                           # Framework 比較、實戰與 AI 整合文件
-├── pyproject.toml                  # Python 專案與依賴設定
-└── uv.lock                         # 可重現的套件版本
-```
-
-資料夾命名原則：
-
-- 第一層先區分 **Framework 或用途**。
-- Framework 內部再區分 **課程章節、實戰專案、延伸/部署**。
-- 有學習順序的資料夾使用 `01_`、`02_` 編號，讓檔案瀏覽器中的順序與課程一致。
-- 生成檔、截圖、Cookie 與匯出資料放在各專案的 `output/`，不與教材混放。
-
----
-
 ## 快速開始
 
 ### 環境需求
