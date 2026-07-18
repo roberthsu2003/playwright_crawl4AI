@@ -1,9 +1,7 @@
-"""專案 12：以 async Playwright 平行擷取三個書籍類別。"""
+"""專案 12：以 async Playwright 平行擷取三個書籍類別並比較耗時。"""
 
 import asyncio
-import json
 import time
-from pathlib import Path
 
 from playwright.async_api import Browser, Page, Route, async_playwright
 
@@ -13,9 +11,6 @@ CATEGORIES = {
     "Mystery": "https://books.toscrape.com/catalogue/category/books/mystery_3/index.html",
     "Historical Fiction": "https://books.toscrape.com/catalogue/category/books/historical-fiction_4/index.html",
 }
-OUTPUT_DIR = Path(__file__).resolve().parent / "output"
-
-
 async def block_heavy_resources(route: Route) -> None:
     if route.request.resource_type in {"image", "font", "media"}:
         await route.abort()
@@ -67,12 +62,11 @@ async def main() -> None:
         await browser.close()
 
     books = [book for category_books in results for book in category_books]
-    OUTPUT_DIR.mkdir(exist_ok=True)
-    output_file = OUTPUT_DIR / "books_parallel.json"
-    output_file.write_text(
-        json.dumps(books, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
-    print(f"共 {len(books)} 本 / {time.perf_counter() - start:.2f} 秒 / {output_file}")
+    elapsed = time.perf_counter() - start
+    print(f"共 {len(books)} 本 / {elapsed:.2f} 秒")
+    for book in books[:3]:
+        print(book)
+    print("目前只顯示前三筆；效能紀錄儲存將在 AI 賦能階段加入。")
 
 
 if __name__ == "__main__":

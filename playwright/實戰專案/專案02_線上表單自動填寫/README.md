@@ -9,13 +9,23 @@
 - 等待 URL 變化與驗證 `Received!`
 - 表單送出後的結果驗收
 
-## 執行
+## 完成步驟
+
+1. 用瀏覽器手動開啟 Selenium Web Form，觀察欄位標籤與送出後網址。
+2. 開啟 [`main.py`](main.py)，依序找出 `fill()`、`select_option()`、`check()` 與 `click()`。
+3. 在 repo 根目錄完成 `uv sync` 與 `uv run playwright install chromium`，再執行：
 
 ```bash
 uv run python playwright/實戰專案/專案02_線上表單自動填寫/main.py
 ```
 
-驗收時確認網址已轉向 `submitted-form.html`，終端顯示 `Received!`。
+4. 觀察程式如何等待網址改變，以及如何等待 `Received!` 可見。
+5. 確認終端網址包含 `submitted-form.html`，並顯示 `Received!`。
+6. 更換一個輸入值重新驗證，成功後再使用 AI Prompt 建立介面。
+
+## 資料儲存判斷
+
+不需要。這個專案的重點是操作與驗證表單，不應保存練習密碼或表單內容；AI 介面只顯示本次結果與截圖。
 
 ## AI 介面升級
 

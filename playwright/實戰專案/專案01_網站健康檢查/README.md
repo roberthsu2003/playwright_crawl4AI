@@ -9,14 +9,28 @@
 - HTTP 回應狀態與整頁截圖
 - 使用命令列參數切換瀏覽器
 
-## 執行
+## 完成步驟
+
+1. 先閱讀上方學習重點，再開啟 [`main.py`](main.py)，找到 `page.goto()`、標題定位與 `page.screenshot()`。
+2. 在 repo 根目錄完成共用安裝：`uv sync` 與 `uv run playwright install chromium`。
+3. 執行 Chromium 版本：
 
 ```bash
 uv run python playwright/實戰專案/專案01_網站健康檢查/main.py
+```
+
+4. 再改用 Firefox 比較結果：
+
+```bash
 uv run python playwright/實戰專案/專案01_網站健康檢查/main.py --browser firefox
 ```
 
-成果會儲存在本目錄的 `output/`。驗收時確認 HTTP 為 200、標題為 Example Domain，且截圖可正常開啟。
+5. 確認終端顯示 HTTP 200、標題 `Example Domain`，並能開啟 `output/` 內的截圖。
+6. 說明 `response.status`、`page.title()` 與 role locator 各取得什麼資訊，再進行 AI 介面升級。
+
+## 資料儲存判斷
+
+不需要儲存爬取資料；截圖是本章必要的瀏覽器成果。若要長期監測多個網站，可在 AI 賦能階段選用 SQLite 記錄檢查歷史。
 
 ## AI 介面升級
 

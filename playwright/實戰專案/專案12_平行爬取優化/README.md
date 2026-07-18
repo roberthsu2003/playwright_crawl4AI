@@ -7,15 +7,25 @@
 - `async_playwright` 與 `asyncio.gather()`
 - 每個平行任務使用獨立 browser context
 - route 阻擋圖片、字型與媒體
-- timeout、重試、`finally` 清理與 JSON 輸出
+- timeout、重試、`finally` 清理與效能計時
 
-## 執行
+## 完成步驟
+
+1. 先完成 [Asyncio 非同步編程](../../../基礎課程/asyncio/) 的基本概念。
+2. 開啟 [`main.py`](main.py)，找出 `asyncio.gather()`、獨立 context、route 擋資源、重試與 `finally`。
+3. 在 repo 根目錄完成共用安裝後執行：
 
 ```bash
 uv run python playwright/實戰專案/專案12_平行爬取優化/main.py
 ```
 
-成果為 `output/books_parallel.json`。驗收時確認 Travel、Mystery 與 Historical Fiction 都有資料，並記錄總耗時。
+4. 觀察三個類別的筆數、總筆數、耗時與前三筆資料。
+5. 驗收 Travel、Mystery、Historical Fiction 都成功，瀏覽器與 context 都正常關閉。
+6. 先手動記下本次耗時，再使用 AI Prompt 建立可重複比較的效能儀表板。
+
+## 資料儲存判斷
+
+**推薦儲存實驗摘要，不必保存全部書籍。**AI 賦能階段可用 CSV 匯出比較表，或用 SQLite 保存多次 benchmark（時間、並行數、成功率、重試數）；不使用雲端資料庫。
 
 ## AI 介面升級
 

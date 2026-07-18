@@ -9,13 +9,23 @@
 - 主動限制請求速度
 - 不繞過 CAPTCHA、不隱藏身分、不高頻請求
 
-## 執行
+## 完成步驟
+
+1. 先閱讀目標站 robots.txt，確認它是規範提示而非用來猜測繞過方法。
+2. 開啟 [`main.py`](main.py)，檢查透明 User-Agent、語系、時區、viewport 與請求間隔。
+3. 在 repo 根目錄完成共用安裝後執行：
 
 ```bash
 uv run python playwright/實戰專案/專案11_禮貌爬蟲/main.py
 ```
 
-驗收時確認 robots.txt 與 HTTPBingo 收到的 headers 都有正常顯示。
+4. 比較程式設定與 HTTPBingo 實際收到的 headers。
+5. 驗收 robots.txt、User-Agent、Accept-Language 與 viewport 都正常顯示。
+6. 修改 bot 名稱與間隔練習後還原，再使用 AI Prompt 建立設定助理。
+
+## 資料儲存判斷
+
+不需要。這是規範與設定檢查；AI 介面最多提供本次 JSON/CSV 報告下載，不建立歷史資料庫。
 
 ## AI 介面升級
 

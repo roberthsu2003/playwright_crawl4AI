@@ -9,13 +9,23 @@
 - browser context 錄影與正確關閉時機
 - 建立統一的成果資料夾
 
-## 執行
+## 完成步驟
+
+1. 開啟 [`main.py`](main.py)，確認目標 URL、viewport 與 `output/` 路徑。
+2. 依序找出整頁、元素、clip 截圖、PDF 與錄影設定。
+3. 在 repo 根目錄完成共用安裝後執行：
 
 ```bash
 uv run python playwright/實戰專案/專案08_網頁存證報告/main.py
 ```
 
-驗收時檢查 `output/` 內的 PNG、PDF 與 `video/` 錄影，確認檔案都能開啟。
+4. 等程式正常關閉 page 與 context；錄影要到關閉後才會完整寫入。
+5. 驗收 `output/` 內三張 PNG、PDF 與 `video/` 錄影都能開啟。
+6. 更換一個公開頁面測試後，再使用 AI Prompt 建立作品庫。
+
+## 資料儲存判斷
+
+PNG、PDF、影片就是本章的必要成果，因此由核心程式直接保存。AI 作品庫可選用 SQLite 只記錄檔名、來源網址、建立時間與大小；實體檔仍保留在本機資料夾。
 
 ## AI 介面升級
 

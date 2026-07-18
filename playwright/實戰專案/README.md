@@ -6,20 +6,20 @@
 
 ## 學習地圖
 
-| 完成章節 | 實戰專案 | 真實網站 | 主要功能 | 成果 |
-|---|---|---|---|---|
-| 01 簡介 | [01 網站健康檢查](專案01_網站健康檢查/README.md) | Example Domain | 啟動瀏覽器、導航、標題、截圖 | `homepage.png` |
-| 02 基礎操作 | [02 線上表單自動填寫](專案02_線上表單自動填寫/README.md) | Selenium Web Form | fill、select、check、click | 表單送出驗證 |
-| 03 元素定位 | [03 購物網站元素定位](專案03_購物網站元素定位/README.md) | SauceDemo | role、label、test id、CSS、filter | 購物車摘要 |
-| 04 等待與同步 | [04 動態內容等待](專案04_動態內容等待/README.md) | The Internet | 自動等待、明確等待、條件等待 | `Hello World!` |
-| 05 資料擷取 | [05 線上書店資料擷取](專案05_線上書店資料擷取/README.md) | Books to Scrape | 多元素、文字、屬性、分頁 | `books.csv` |
-| 06 進階互動 | [06 進階互動巡檢](專案06_進階互動巡檢/README.md) | The Internet | hover、鍵盤、滾動、上傳、下載 | 下載檔案 |
-| 07 多頁面與框架 | [07 多視窗與 iframe](專案07_多視窗與iframe/README.md) | The Internet | popup、alert、iframe | 三項互動結果 |
-| 08 截圖與錄影 | [08 網頁存證報告](專案08_網頁存證報告/README.md) | Wikipedia | 整頁/元素/區域截圖、錄影、PDF | `output/` 報告檔 |
-| 09 網路請求與回應 | [09 API 監聽與 Mock](專案09_API監聽與Mock/README.md) | JSONPlaceholder | request/response、expect_response、route | 真實與 Mock JSON |
-| 10 登入與 Cookie | [10 登入狀態保存](專案10_登入狀態保存/README.md) | SauceDemo | 登入、Cookie、localStorage、storage state | `auth.json` |
-| 11 反爬蟲對策 | [11 禮貌爬蟲](專案11_禮貌爬蟲/README.md) | HTTPBingo | User-Agent、locale、viewport、限速 | 瀏覽器標頭報告 |
-| 12 效能優化 | [12 平行爬取優化](專案12_平行爬取優化/README.md) | Books to Scrape | async、平行 context、擋資源、重試 | `books_parallel.json` |
+| 完成章節 | 實戰專案 | 真實網站 | 主要功能 | 核心成果 | AI 本機儲存 |
+|---|---|---|---|---|---|
+| 01 簡介 | [01 網站健康檢查](專案01_網站健康檢查/README.md) | Example Domain | 啟動瀏覽器、導航、標題、截圖 | `homepage.png` | 不需要 |
+| 02 基礎操作 | [02 線上表單自動填寫](專案02_線上表單自動填寫/README.md) | Selenium Web Form | fill、select、check、click | 表單送出驗證 | 不需要 |
+| 03 元素定位 | [03 購物網站元素定位](專案03_購物網站元素定位/README.md) | SauceDemo | role、label、test id、CSS、filter | 購物車摘要 | 不需要 |
+| 04 等待與同步 | [04 動態內容等待](專案04_動態內容等待/README.md) | The Internet | 自動等待、明確等待、條件等待 | `Hello World!` | CSV 實驗比較（選用） |
+| 05 資料擷取 | [05 線上書店資料擷取](專案05_線上書店資料擷取/README.md) | Books to Scrape | 多元素、文字、屬性、分頁 | 結構化書籍清單 | CSV / XLSX（推薦） |
+| 06 進階互動 | [06 進階互動巡檢](專案06_進階互動巡檢/README.md) | The Internet | hover、鍵盤、滾動、上傳、下載 | 下載檔案 | 不需要 |
+| 07 多頁面與框架 | [07 多視窗與 iframe](專案07_多視窗與iframe/README.md) | The Internet | popup、alert、iframe | 三項互動結果 | 不需要 |
+| 08 截圖與錄影 | [08 網頁存證報告](專案08_網頁存證報告/README.md) | Wikipedia | 整頁/元素/區域截圖、錄影、PDF | `output/` 報告檔 | SQLite 索引（選用） |
+| 09 網路請求與回應 | [09 API 監聽與 Mock](專案09_API監聽與Mock/README.md) | JSONPlaceholder | request/response、expect_response、route | 真實與 Mock JSON | SQLite 執行紀錄（選用） |
+| 10 登入與 Cookie | [10 登入狀態保存](專案10_登入狀態保存/README.md) | SauceDemo | 登入、Cookie、localStorage、storage state | `auth.json` | 不另存資料 |
+| 11 反爬蟲對策 | [11 禮貌爬蟲](專案11_禮貌爬蟲/README.md) | HTTPBingo | User-Agent、locale、viewport、限速 | 瀏覽器標頭報告 | 不需要 |
+| 12 效能優化 | [12 平行爬取優化](專案12_平行爬取優化/README.md) | Books to Scrape | async、平行 context、擋資源、重試 | 終端效能摘要 | CSV / SQLite（推薦） |
 
 ## 快速開始
 
@@ -31,12 +31,14 @@ uv run playwright install chromium
 uv run python playwright/實戰專案/專案01_網站健康檢查/main.py
 ```
 
-每個 `main.py` 都可獨立執行，成果會放在該專案的 `output/` 目錄。
+每個 `main.py` 都可獨立執行。只有截圖、下載、錄影、PDF 與登入狀態等章節必要產物會寫入 `output/`；爬取到的業務資料預設只回傳或顯示。
 若不使用 uv，也可以改用 `pip install -r playwright/實戰專案/requirements.txt`，再執行 `playwright install chromium`。
 
 ## AI 介面升級
 
 完成核心專案後，可以用 tkinter、PySide6/PyQtGraph、Gradio、Dash、Flask、Streamlit 或 FastAPI 將它升級為桌面 App、儀表板、網站或 API。
+
+資料儲存不是本課程的主軸。只有在資料需要「下載分析、保留歷史或跨次比較」時，才由 AI 賦能階段加入 CSV、XLSX 或 SQLite；不使用雲端資料庫。
 
 [開啟「AI 介面設計 Prompt 手冊」—包含 12 份可直接複製的完整 Prompt →](AI介面設計Prompt.md)
 

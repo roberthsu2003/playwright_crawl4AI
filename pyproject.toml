@@ -10,5 +10,5 @@ dependencies = [
     "nest-asyncio>=1.6.0",
     "notebook>=7.6.0",
     "playwright>=1.55.0",
+    "twstock>=1.4.0",
 ]
-

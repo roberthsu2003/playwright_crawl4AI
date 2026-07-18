@@ -9,13 +9,23 @@
 - `expect_download()` 與 `save_as()`
 - 將下載成果集中儲存在 `output/`
 
-## 執行
+## 完成步驟
+
+1. 手動操作 The Internet 的 Hovers、Key Presses、Large & Deep DOM、Upload 與 Download 頁面。
+2. 開啟 [`main.py`](main.py)，將五段操作對應到五個 Playwright API。
+3. 在 repo 根目錄完成共用安裝後執行：
 
 ```bash
 uv run python playwright/實戰專案/專案06_進階互動巡檢/main.py
 ```
 
-驗收時確認五個步驟都有結果，上傳檔名正確，且 `output/` 內存在下載檔案。
+4. 逐行檢查終端結果；下載步驟會把網站提供的檔案放入 `output/`。
+5. 驗收五個步驟都有結果、上傳檔名正確，且下載檔可以開啟。
+6. 任選一個步驟說明「動作、等待、驗證」三部分，再進行 AI 介面升級。
+
+## 資料儲存判斷
+
+不需要儲存爬取資料。`student_upload.txt` 與下載檔是上傳／下載章節的必要操作產物，不是資料分析結果。
 
 ## AI 介面升級
 

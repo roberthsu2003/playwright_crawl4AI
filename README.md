@@ -158,7 +158,7 @@ Playwright 專案與第 01～12 章一對一對應。建議每學完一章，立
 
 | # | Framework | 專案 | 主題 | 難度 |
 |---:|---|---|---|---|
-| 01 | 🤖 **CRAWL4AI** | [台灣銀行牌告匯率](./crawl4AI/實戰專案/01_台灣銀行牌告匯率/README.md) | CSS Schema、結構化匯率、定時排程 | ⭐⭐ 初級 |
+| 01 | 🤖 **CRAWL4AI** | [台灣銀行牌告匯率](./crawl4AI/實戰專案/01_台灣銀行牌告匯率/README.md) | CSS Schema、結構化匯率、單次爬取 | ⭐⭐ 初級 |
 | 02 | 🤖 **CRAWL4AI** | [台灣即時股票資訊](./crawl4AI/實戰專案/02_台灣即時股票資訊/README.md) | JavaScript 動態渲染、精準定位 | ⭐⭐⭐⭐ 進階 |
 | 03 | 🤖 **CRAWL4AI** | [股票批次爬取 GUI](./crawl4AI/實戰專案/03_股票批次爬取_GUI/README.md) | CLI + GUI、非同步批次、並發控制 | ⭐⭐⭐⭐⭐ 高級 |
 | 04 | 🤖 **CRAWL4AI** | [股票即時監控 GUI](./crawl4AI/實戰專案/04_股票即時監控_GUI/README.md) | Tkinter、多執行緒、自動更新 | ⭐⭐⭐⭐⭐ 高級 |
@@ -173,7 +173,7 @@ Playwright 專案與第 01～12 章一對一對應。建議每學完一章，立
 |---|---|
 | 第一次開始網頁自動化 | 🎭 Playwright 01 網站健康檢查 |
 | 想練習爬取表格資料 | 🤖 Crawl4AI 01 台灣銀行匯率 |
-| 想練習批量商品資料與 CSV | 🎭 Playwright 05 線上書店 |
+| 想練習批量商品資料，之後由 AI 匯出 CSV/XLSX | 🎭 Playwright 05 線上書店 |
 | 想理解動態 JavaScript 資料 | 🤖 Crawl4AI 02 即時股票 |
 | 想建立登入、Cookie 或 API 自動化 | 🎭 Playwright 09～10 |
 | 想學桌面 GUI 與背景任務 | 🤖 Crawl4AI 03～04，再對照 Playwright AI Prompt |
@@ -189,12 +189,16 @@ Playwright 專案與第 01～12 章一對一對應。建議每學完一章，立
 - **資料儀表板**：Dash / Plotly
 - **自訂網站**：Flask
 - **Web API**：FastAPI
-- **資料與排程**：PostgreSQL、APScheduler
+- **本機資料**：CSV、XLSX、SQLite（只在值得保留時加入）
 - **AI 分析**：OpenAI、Gemini、RAG 或其他 LLM
 
 Playwright 的 12 個實戰都已準備完整、可直接複製給 AI 的介面開發 Prompt：
 
 [開啟 AI 介面設計 Prompt 手冊 →](./playwright/實戰專案/AI介面設計Prompt.md)
+
+Crawl4AI 的 4 個案例也有對應的介面與本機儲存 Prompt：
+
+[開啟 Crawl4AI AI 介面與本機儲存 Prompt 手冊 →](./crawl4AI/實戰專案/AI資料儲存Prompt.md)
 
 [查看其他 AI 整合方向與難度表 →](./docs/ai_integration.md)
 

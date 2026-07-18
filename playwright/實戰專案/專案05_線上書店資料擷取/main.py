@@ -1,16 +1,11 @@
-"""專案 05：擷取 Books to Scrape 前三頁並存成 CSV。"""
+"""專案 05：擷取 Books to Scrape 前三頁並回傳結構化資料。"""
 
-import csv
-from pathlib import Path
 from urllib.parse import urljoin
 
 from playwright.sync_api import sync_playwright
 
 
 START_URL = "https://books.toscrape.com/"
-OUTPUT_DIR = Path(__file__).resolve().parent / "output"
-
-
 def scrape_books(max_pages: int = 3) -> list[dict[str, str]]:
     books: list[dict[str, str]] = []
     with sync_playwright() as playwright:
@@ -46,16 +41,9 @@ def scrape_books(max_pages: int = 3) -> list[dict[str, str]]:
     return books
 
 
-def save_csv(books: list[dict[str, str]]) -> Path:
-    OUTPUT_DIR.mkdir(exist_ok=True)
-    output_file = OUTPUT_DIR / "books.csv"
-    with output_file.open("w", newline="", encoding="utf-8-sig") as file:
-        writer = csv.DictWriter(file, fieldnames=["title", "price", "stock", "rating", "url"])
-        writer.writeheader()
-        writer.writerows(books)
-    return output_file
-
-
 if __name__ == "__main__":
     result = scrape_books()
-    print(f"已儲存 {len(result)} 筆資料至 {save_csv(result)}")
+    print(f"擷取完成：共 {len(result)} 筆資料")
+    for book in result[:3]:
+        print(book)
+    print("目前只顯示前三筆；CSV/XLSX 儲存將在 AI 賦能階段加入。")

@@ -9,13 +9,23 @@
 - `page.route()` 與 `route.fulfill()`
 - 比較真實與 Mock 回應
 
-## 執行
+## 完成步驟
+
+1. 用瀏覽器查看 JSONPlaceholder 的 `/posts/1`，理解真實 JSON 格式。
+2. 開啟 [`main.py`](main.py)，對照 request event、`expect_response()` 與 `route.fulfill()`。
+3. 在 repo 根目錄完成共用安裝後執行：
 
 ```bash
 uv run python playwright/實戰專案/專案09_API監聽與Mock/main.py
 ```
 
-驗收時確認先收到 HTTP 200 真實標題，再收到「教室 Mock 資料」。
+4. 比較真實回應與 Mock 回應，確認第二次請求確實被 route 攔截。
+5. 驗收先收到 HTTP 200 真實標題，再收到「教室 Mock 資料」。
+6. 嘗試將 Mock status 改為 404 後還原，再進行 AI API 平台升級。
+
+## 資料儲存判斷
+
+核心練習不需要儲存。AI 平台若要支援「最近執行紀錄」，可用 SQLite 保留 request/response 摘要；限制筆數並提供清除功能，不使用雲端資料庫。
 
 ## AI 介面升級
 

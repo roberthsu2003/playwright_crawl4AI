@@ -268,6 +268,8 @@ final_runs/
 
 ## 快速開始範例
 
+以下範例由淺入深：先讀取單一資料，再練習分頁擷取，最後操作動態篩選並輸出結構化結果。
+
 ```
 # 範例 1：擷取台灣銀行今日匯率
 /webwright 前往台灣銀行牌告匯率頁面，擷取今日美元兌台幣的買入與賣出價
@@ -275,18 +277,12 @@ final_runs/
 # 範例 2：搜尋 PTT 最新文章標題
 /webwright 前往 PTT 八卦版，列出首頁前 10 篇文章的標題與推文數
 
-# 範例 3：檢查網站是否正常運作並截圖存證
-/webwright 前往 https://example.com 並截圖確認頁面正常顯示
+# 範例 3（初階）：讀取維基百科單一頁面
+/webwright 前往 https://zh.wikipedia.org/wiki/臺灣，擷取條目標題、第一段摘要，以及資訊框中的首都、人口與面積，最後截圖存證
 
-# 範例 4：建立可重複使用的商品價格擷取腳本
-/webwright:craft 製作一個可輸入商品網址的價格擷取腳本，輸出商品名稱、目前價格與擷取時間
+# 範例 4（中階）：跨頁整理 Hacker News 熱門文章
+/webwright 前往 https://news.ycombinator.com/，擷取前 2 頁文章，整理出標題、分數、留言數與原文連結，依分數由高至低列出前 20 筆
 
-# 範例 5：建立網站狀態監控腳本
-/webwright:craft 製作一個可輸入網址的網站監控腳本，檢查 HTTP 狀態、頁面標題與指定文字是否存在，並儲存截圖
-
-# 範例 6：建立自動填寫表單腳本
-/webwright:craft 製作一個可輸入姓名、電子郵件與留言內容的表單填寫腳本，送出前先截圖並等待使用者確認
-
-# 範例 7：建立分頁資料擷取腳本
-/webwright:craft 製作一個可輸入列表頁網址與最大頁數的爬蟲腳本，自動翻頁並將標題、連結與日期輸出為 JSON
+# 範例 5（進階）：篩選 GitHub Issues 並輸出結構化資料
+/webwright:craft 製作一個腳本，前往 https://github.com/microsoft/playwright/issues，搜尋「is:issue is:open label:browser-chromium sort:updated-desc」，擷取前 20 筆 Issue 的編號、標題、作者、標籤、更新時間與連結，輸出為 JSON，並儲存結果頁完整截圖
 ```

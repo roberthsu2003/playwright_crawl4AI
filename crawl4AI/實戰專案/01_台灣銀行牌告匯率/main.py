@@ -1,14 +1,13 @@
 #使用台灣銀行牌告匯率
 #網址:https://rate.bot.com.tw/xrt?Lang=zh-TW
 
-import json
 import asyncio
-import os
-from datetime import datetime
+import json
+
 from crawl4ai import AsyncWebCrawler, CrawlerRunConfig, CacheMode
 from crawl4ai.extraction_strategy import JsonCssExtractionStrategy
 
-async def extract_crypto_prices():
+async def extract_exchange_rates() -> list[dict]:
 #1. 定義一個簡單的extraction schema
 
     schema = {
@@ -62,56 +61,26 @@ async def extract_crypto_prices():
 
         if not result.success:
             print("Crawl failed:", result.error_message)
-            return
+            return []
         
         # 5. 解析被提取的json資料
         data = json.loads(result.extracted_content)
         print(f"Extracted {len(data)} coin entries")
         
-        # 6. 儲存資料為JSON格式，建立適當的檔案名稱
+        # 6. 課堂核心只驗證與顯示資料；本機儲存由 AI 賦能階段加入
         if data:
-            # 建立基於時間的檔案名稱
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"台幣匯率_{timestamp}.json"
-            
-            # 確保資料夾存在
-            os.makedirs("data", exist_ok=True)
-            filepath = os.path.join("data", filename)
-            
-            # 儲存JSON檔案
-            with open(filepath, 'w', encoding='utf-8') as f:
-                json.dump(data, f, indent=2, ensure_ascii=False)
-            
-            print(f"資料已儲存至: {filepath}")
             print(json.dumps(data, indent=2, ensure_ascii=False))
+            print("目前只顯示資料；SQLite 歷史儲存將在 AI 賦能階段加入。")
+            return data
         else:
             print("No Data found")
+            return []
 
 async def main():
-    """主程式：每隔10分鐘自動執行一次爬蟲"""
+    """主程式：執行一次，讓學生專注於爬取與結構化。"""
     print("台幣匯率爬蟲程式啟動...")
-    print("每10分鐘自動執行一次")
-    
-    while True:
-        try:
-            current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            print(f"\n=== 開始執行爬蟲 ({current_time}) ===")
-            
-            await extract_crypto_prices()
-            
-            print("=== 爬蟲執行完成 ===")
-            print("等待10分鐘後再次執行...")
-            
-            # 等待10分鐘 (600秒)
-            await asyncio.sleep(600)
-            
-        except KeyboardInterrupt:
-            print("\n程式被使用者中斷")
-            break
-        except Exception as e:
-            print(f"執行過程中發生錯誤: {e}")
-            print("等待10分鐘後重試...")
-            await asyncio.sleep(600)
+    await extract_exchange_rates()
+    print("=== 爬蟲執行完成 ===")
 
 if __name__ == "__main__":
     asyncio.run(main())
