@@ -191,6 +191,10 @@ cython_debug/
 # Ruff stuff:
 .ruff_cache/
 
+# Playwright CLI snapshots and classroom project outputs
+.playwright-cli/
+playwright/**/output/
+
 # PyPI configuration file
 .pypirc
 

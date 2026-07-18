@@ -13,17 +13,17 @@
 1. **Playwright (微軟瀏覽器自動化工具)**
    - 用於模擬真實瀏覽器行為，支援 Chromium、Firefox 及 WebKit。
    - 處理動態 JavaScript 渲染、網頁點擊、表單填寫、截圖與錄影等基礎操作。
-   - 教學內容位於 `playwright/` 目錄。
+   - 課程位於 `playwright/課程章節/`，專案位於 `playwright/實戰專案/`。
 
 2. **Crawl4AI (AI 驅動的非同步爬蟲框架)**
    - 基於 Playwright 封裝的高階爬蟲框架，專為大規模、結構化資料抓取設計。
    - 支援非同步批次處理 (`arun_many`) 與 LLM 智慧解析網頁結構。
-   - 教學內容位於 `crawl4AI/` 目錄。
+   - 課程位於 `crawl4AI/課程章節/`，專案位於 `crawl4AI/實戰專案/`。
 
 3. **Webwright (自然語言網頁自動化助手)**
    - 整合於 AI 助手中的 Playwright 網頁自動化模組。
    - 支援使用自然語言直接操作瀏覽器完成任務（`/webwright`）或製作參數化腳本（`/webwright:craft`）。
-   - 相關說明位於 `webwright/` 目錄。
+   - 相關說明位於 `tools/webwright/` 目錄。
 
 ---
 
@@ -75,11 +75,11 @@
 ### 執行範例程式
 - **執行 Playwright 基礎範例**（假設在虛擬環境中或使用 `uv run`）：
   ```bash
-  uv run python playwright/第02章_基礎操作/main.py
+  uv run python playwright/課程章節/第02章_基礎操作/index.py
   ```
 - **執行 Crawl4AI 實戰案例**：
   ```bash
-  uv run python crawl4AI/實際案例/1台灣銀行牌告匯率/main.py
+  uv run python crawl4AI/實戰專案/01_台灣銀行牌告匯率/main.py
   ```
 
 ### 啟動 Jupyter Notebook (用於互動式教學)

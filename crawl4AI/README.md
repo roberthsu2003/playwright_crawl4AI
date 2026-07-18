@@ -2,6 +2,14 @@
 
 **官方網站**: [Crawl4AI GitHub](https://github.com/unclecode/crawl4ai)
 
+## 資料夾導覽
+
+| 資料夾 | 內容 | 入口 |
+|---|---|---|
+| `課程章節/` | 安裝、初體驗、CSS Schema、JavaScript、多頁面與排程 | [課程章節導覽](課程章節/README.md) |
+| `實戰專案/` | 匯率、即時股票、批次 GUI 與即時監控 GUI | [實戰專案導覽](實戰專案/README.md) |
+| `部署/` | Docker 與後續部署教材 | [部署導覽](部署/README.md) |
+
 ## 🤖 什麼是 Crawl4AI？
 
 Crawl4AI 是一個**專門為爬蟲與 AI 資料提取設計的開源框架**，它建立在 Playwright 之上，並將常見的網頁爬取與清理邏輯進行了高度封裝。它不是像 Selenium 或 Playwright 那樣的通用網頁自動化測試工具，而是純粹為爬蟲打造的框架。
@@ -61,7 +69,7 @@ asyncio.run(main())
 
 由於 Crawl4AI 深度依賴 Python 的非同步編程機制，在開始學習 Crawl4AI 之前，**強烈建議**您先掌握 `async/await` 與 `asyncio` 的運作方式。如果這對您來說較為陌生，請先閱讀：
 
-👉 [Python Asyncio 非同步編程教學](../asyncio套件教學/)
+👉 [Python Asyncio 非同步編程教學](../基礎課程/asyncio/)
 
 ---
 
@@ -69,26 +77,26 @@ asyncio.run(main())
 
 | 章節 | 內容 | 重點 |
 | :--- | :--- | :--- |
-| **前置準備** | [Asyncio 教學](../asyncio套件教學/) | ⚠️ **重要：學 Crawl4AI 前必讀的非同步編程基礎** |
-| **第一章** | [安裝與配置](./安裝/) | 快速安裝並執行第一個 Crawl4AI 程式，感受其便利性。 |
-| **第二章** | [Crawl4AI 初體驗](./初體驗/) | 了解基本配置、請求頭設定與內容過濾器。 |
-| **第三章** | [快速入門指南](./Crawl4A快速入門/) | 了解核心配置、Markdown 輸出與不同的資料擷取策略。 |
-| **第四章** | [手動定義 CSS Schema](./Crawl4A快速入門/手動方式產生css_schema/) | 學習手動定義資料結構，免去 LLM 的成本與不確定性。 |
-| **第五章** | [JavaScript 網頁互動](./Crawl4A操控javascript/) | 處理滾動、點擊、延遲等待等動態網頁內容。 |
-| **第六章** | [多網址爬蟲與非同步 Dispatcher](./Crawl4A多頁面爬蟲/) | 批次爬取多個網頁，使用非同步機制大幅提升效率。 |
-| **第七章** | [排程與定時任務](./排程/) | 結合排程工具在背景定時自動執行爬蟲任務。 |
+| **前置準備** | [Asyncio 教學](../基礎課程/asyncio/) | ⚠️ **重要：學 Crawl4AI 前必讀的非同步編程基礎** |
+| **第一章** | [安裝與配置](./課程章節/01_安裝/) | 快速安裝並執行第一個 Crawl4AI 程式，感受其便利性。 |
+| **第二章** | [Crawl4AI 初體驗](./課程章節/02_初體驗/) | 了解基本配置、請求頭設定與內容過濾器。 |
+| **第三章** | [快速入門指南](./課程章節/03_快速入門/) | 了解核心配置、Markdown 輸出與不同的資料擷取策略。 |
+| **第四章** | [手動定義 CSS Schema](./課程章節/03_快速入門/手動方式產生css_schema/) | 學習手動定義資料結構，免去 LLM 的成本與不確定性。 |
+| **第五章** | [JavaScript 網頁互動](./課程章節/04_操控JavaScript/) | 處理滾動、點擊、延遲等待等動態網頁內容。 |
+| **第六章** | [多網址爬蟲與非同步 Dispatcher](./課程章節/05_多頁面爬蟲/) | 批次爬取多個網頁，使用非同步機制大幅提升效率。 |
+| **第七章** | [排程與定時任務](./課程章節/06_排程/) | 結合排程工具在背景定時自動執行爬蟲任務。 |
 | **第八章** | [實際案例](../docs/cases.md) | 完整的真實專案（匯率、股票資訊、GUI 桌面應用）。 |
 
 ---
 
 ## 課程大綱
 
-### **[前置準備：Asyncio 教學](../asyncio套件教學/)**
+### **[前置準備：Asyncio 教學](../基礎課程/asyncio/)**
 - Python 協程與非同步編程基本概念
 - `async/await` 語法與 `asyncio.run()` 的調用
 - 非同步任務的並行執行
 
-### **[第一章：安裝與配置](./安裝/README.md)**
+### **[第一章：安裝與配置](./課程章節/01_安裝/README.md)**
 #### 1.1 安裝 Crawl4AI
 - 安裝 `crawl4ai` 與 `nest_asyncio`
 - 執行 `playwright install` 初始化瀏覽器
@@ -96,7 +104,7 @@ asyncio.run(main())
 - 驗證安裝版本
 - 解決 Jupyter Notebook/Windows 等不同環境下的非同步衝突
 
-### **[第二章：Crawl4AI 初體驗](./初體驗/README.md)**
+### **[第二章：Crawl4AI 初體驗](./課程章節/02_初體驗/README.md)**
 #### 2.1 Playwright 與 Crawl4AI 結合的優勢
 - 什麼是 Playwright？為什麼 Crawl4AI 要基於 Playwright？
 - 處理動態網頁渲染與自動等待機制
@@ -104,7 +112,7 @@ asyncio.run(main())
 - 實作最基礎 of `AsyncWebCrawler`
 - 認識爬取結果 `result.markdown` 與其清理特色
 
-### **[第三章：快速入門指南](./Crawl4A快速入門/README.md)**
+### **[第三章：快速入門指南](./課程章節/03_快速入門/README.md)**
 #### 3.1 Crawl4AI 基礎配置
 - 認識 `BrowserConfig` 與 `CrawlerRunConfig` 核心類別
 - 深入設定 Header、User-Agent 與內容過濾器
@@ -112,7 +120,7 @@ asyncio.run(main())
 - 手動與 LLM 智慧擷取模式概覽
 - 使用 `manual_control_example.py` 進行操作示範
 
-### **[第四章：手動定義 CSS Schema](./Crawl4A快速入門/手動方式產生css_schema/README.md)**
+### **[第四章：手動定義 CSS Schema](./課程章節/03_快速入門/手動方式產生css_schema/README.md)**
 #### 4.1 無 LLM 的資料提取策略
 - 為什麼要避免使用 LLM 進行基本提取（成本、延遲、準確性）
 - 認識 `JsonCssExtractionStrategy` 與 `JsonXPathExtractionStrategy`
@@ -120,7 +128,7 @@ asyncio.run(main())
 - 基礎 CSS 選擇器定義與 base selector 概念
 - 複雜與嵌套 (nested) 網頁結構的欄位解析
 
-### **[第五章：JavaScript 網頁互動](./Crawl4A操控javascript/README.md)**
+### **[第五章：JavaScript 網頁互動](./課程章節/04_操控JavaScript/README.md)**
 #### 5.1 動態網頁互動
 - 執行自訂 JavaScript 代碼 (`js_code`) 與設定 `wait_for` 條件
 - 處理「載入更多」按鈕、自動滾動到頁面底部
@@ -128,7 +136,7 @@ asyncio.run(main())
 - 模擬表單填寫與提交
 - 跨多個步驟重複使用 browser session
 
-### **[第六章：多網址爬蟲與非同步 Dispatcher](./Crawl4A多頁面爬蟲/README.md)**
+### **[第六章：多網址爬蟲與非同步 Dispatcher](./課程章節/05_多頁面爬蟲/README.md)**
 #### 6.1 調度器 (Dispatcher) 機制
 - 什麼是 Dispatcher？為什麼多網址爬取需要調度？
 - 認識 `MemoryAdaptiveDispatcher` 與 `SemaphoreDispatcher`
@@ -136,7 +144,7 @@ asyncio.run(main())
 - 使用 `arun_many()` 同時高效爬取多個網頁
 - 自動調整速度、避免網站封鎖與保護系統資源
 
-### **[第七章：排程與定時任務](./排程/README.md)**
+### **[第七章：排程與定時任務](./課程章節/06_排程/README.md)**
 #### 7.1 每分鐘自動執行爬蟲
 - 使用 `while True` + `time.sleep` 的基本寫法與缺點
 - 利用系統內建的 `cron` (Linux/macOS) 進行定時任務
