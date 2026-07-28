@@ -194,15 +194,6 @@ browser = p.chromium.launch(headless=True)
 6. **JavaScript 執行**：使用 `evaluate()` 執行 JavaScript 程式碼
 7. **錯誤處理**：使用 `try-except` 處理可能的錯誤
 
-## 進階練習
 
-1. 修改程式，讓使用者可以輸入出發站、到達站和時間
-2. 將查詢結果儲存成 CSV 或 JSON 檔案
-3. 加入票價比較功能，找出最便宜的車次
-4. 設定定時執行，每天自動查詢特定時段的車次
 
-## 相關資源
 
-- [Playwright 官方文件](https://playwright.dev/python/)
-- [台灣高鐵官網](https://www.thsrc.com.tw/)
-- [Python datetime 模組說明](https://docs.python.org/zh-tw/3/library/datetime.html)
