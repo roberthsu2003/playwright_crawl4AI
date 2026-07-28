@@ -123,6 +123,48 @@ store_results = await asyncio.gather(*stores_tasks)
 
 ---
 
+## 🔑 關鍵技術 (Key Technical Concepts)
+
+1. **Playwright Async API & `asyncio` 協程 (Coroutines)**：
+   - 使用 `async with async_playwright()` 與 `await` 進行非同步網頁操作。
+   - 配合 `asyncio.gather(*tasks)` 實現跨品類、跨賣場的多維度平行併發抓取 (Concurrent Fetching)，大幅減少 I/O 等待時間。
+
+2. **混合式抓取策略 (Hybrid Scraping Approach)**：
+   - **API 直接請求 (API Direct Fetching)**：針對提供公開搜尋 API 的平台（如 PChome 24h 的 `ecshweb.pchome.com.tw`），優先使用 `context.request.get()` 發送高效率 HTTP 請求。
+   - **Playwright DOM 解析 (Headless Page Crawling)**：針對渲染複雜的 SPA / 動態電商平台（如 momo購物網、Yahoo購物中心），使用非同步 Page 載入與 Locator 提取。
+
+3. **頁面載入優化與 Event 等待控制**：
+   - 避免使用 `wait_until="networkidle"` 導致現代電商平台（包含背景輪詢與廣告追蹤）發生超時拖慢問題。
+   - 改用 `wait_until="domcontentloaded"` 搭配精準 Locator 等待，兼顧穩定度與效能。
+
+4. **組態驅動設計 (Configuration-Driven Architecture)**：
+   - 商品、品類與賣場定義全面抽離至 `products_config.json`，實現無須修改程式碼即可動態擴充監控項目的架構。
+
+5. **正則表達式數據清洗 (Regex Data Sanitization)**：
+   - 透過 `re.sub(r"[^\d]", "", price_text)` 從混有貨幣符號、折價券標籤或促銷字眼中精確提取整數售價。
+
+---
+
+## ⚠️ 注意事項 (Important Considerations & Best Practices)
+
+1. **避免數值化價格比較（單位不一致問題）**：
+   - 各品牌或不同賣場上架的商品規格與包裝（如 1000g 單瓶 vs 300gX12盒箱購 vs 4000g補充桶）單位落差極大。
+   - **請勿**直接以 `售價 A - 售價 B` 進行價差計算或百分比比較，避免產出具誤導性的商業分析報告。
+
+2. **電商 DOM 選擇器 (Selectors) 的維護與更新**：
+   - 電商平台（特別是 momo 與 Yahoo）會定期更新 DOM 結構或 CSS class。若搜尋結果顯示「未找到相關商品」，需即時檢查並更新 `main.py` 中的 Locator 選擇器。
+
+3. **頻率控管與反爬蟲偽裝**：
+   - 雖然非同步併發速度極快，但在大規模擴充監控商品時，建議適當設定 User-Agent 與請求間隔，避免引發電商平台的防爬蟲機制或 IP 封鎖。
+
+4. **搜尋關鍵字的精準度**：
+   - 關鍵字若過於寬泛（如僅搜尋「毛寶」），容易抓到非目標商品；若過於嚴格，可能在某些賣場查無結果。建議在 `products_config.json` 中配置經過測試的通用商品名稱。
+
+5. **例外處理與防護機制 (Graceful Exception Handling)**：
+   - 單一賣場連線超時或商品下架不應導致整體程式中斷。各抓取模組皆需包含 `try-except` 容錯，確保報表能穩定匯出。
+
+---
+
 ## 相關資源
 
 - [Playwright Async API 官方文件](https://playwright.dev/python/docs/api/class-playwright)
