@@ -40,7 +40,30 @@ python main.py
 
 ## 程式碼重點說明
 
-### 1. Cookie 處理機制
+### 1. Browser 與 BrowserContext 的差異與優點
+
+在 Playwright 中，`Browser` 與 `BrowserContext` 是兩個非常核心的概念：
+
+| 比較項目 | Browser (瀏覽器實例) | BrowserContext (瀏覽器上下文) |
+| :--- | :--- | :--- |
+| **定義** | 代表一個實際運行的實體瀏覽器進程 (Chromium, Firefox, WebKit) | 代表瀏覽器內部一個獨立、隔離的隱私會話 (Session) |
+| **建立方式** | `p.chromium.launch()` | `browser.new_context()` |
+| **資源開銷** | 開銷較大（需要啟動 OS 進程，耗費 CPU 與記憶體） | 開銷極小（建立只需幾毫秒，幾乎不佔用額外資源） |
+| **層級關係** | 上層容器，一個 Browser 可管理多個 BrowserContext | 中間層，一個 BrowserContext 可管理多個 Page |
+| **隔離程度** | 進程級隔離 | 會話級隔離 (Cookies, LocalStorage, Cache, Viewport 等獨立) |
+
+#### 使用 BrowserContext 的優點
+
+1. **高效能與快速建立**：
+   不需要頻繁啟動與關閉實體瀏覽器進程。啟動一次 `Browser` 後，可快速建立與銷毀數百個獨立的 `BrowserContext`，大幅提升爬蟲與測試效率。
+2. **多會話獨立隔離 (Multi-session Isolation)**：
+   每個 Context 就像一個全新的「無痕視窗」。你可以在同一個瀏覽器實例中，同時登入多個不同帳號或進行平行爬取，彼此的 Cookies 和 Session 絕不衝突。
+3. **靈活的狀態保存與注入**：
+   如本專案所示，可單獨對 Context 進行 Cookies 的載入 (`context.add_cookies()`) 與匯出 (`context.cookies()`)，輕鬆實現跳過驗證或登入狀態維護。
+4. **客製化環境設定**：
+   每個 Context 可獨立配置螢幕解析度（如 `viewport={"width": 1280, "height": 720}`）、User Agent、地理位置、時區與權限設定。
+
+### 2. Cookie 處理機制
 
 ```python
 COOKIES_FILE = "thsrc_cookies.json"
@@ -48,7 +71,7 @@ COOKIES_FILE = "thsrc_cookies.json"
 
 程式會將 Cookie 同意記錄保存在 `thsrc_cookies.json` 檔案中，這樣下次執行時就不需要再點擊「我同意」按鈕。
 
-### 2. 自動計算出發時間
+### 3. 自動計算出發時間
 
 ```python
 now = datetime.now()
@@ -57,25 +80,31 @@ departure_time = now + timedelta(hours=1)
 
 使用 Python 的 `datetime` 模組，自動計算「現在時間 + 1 小時」作為出發時間。
 
-### 3. 選擇車站
+### 4. 選擇車站
 
 ```python
+departure_station = page.get_by_label("出發站")
 departure_station.select_option("台北")
+
+arrival_station = page.get_by_label("到達站")
 arrival_station.select_option("台中")
 ```
 
-使用 `select_option()` 方法選擇下拉選單中的選項。
+優先使用 Playwright 官方推薦的 `get_by_label()` 方法選擇下拉選單（標籤明確且最具可讀性）。
 
-### 4. 填入日期和時間
+### 5. 填入日期和時間
 
 ```python
+date_input = page.get_by_label("出發日期")
 date_input.fill(departure_date)
+
+time_input = page.get_by_label("出發時間")
 time_input.fill(departure_hour)
 ```
 
-使用 `fill()` 方法填入表單欄位。
+同樣使用 `get_by_label()` 找到日期與時間輸入欄位，並用 `fill()` 方法填入。
 
-### 5. 等待頁面載入
+### 6. 等待頁面載入
 
 ```python
 page.wait_for_load_state("networkidle")
@@ -83,13 +112,13 @@ page.wait_for_load_state("networkidle")
 
 等待網路請求完成，確保資料已經載入。
 
-### 6. 抓取資料
+### 7. 抓取資料
 
 ```python
 train_rows = page.locator("a.tr-row").all()
 ```
 
-使用 `locator()` 找到所有車次資料，然後用迴圈逐一處理。
+對於頁面上沒有語意化 label/role 的動態資料列表，使用 `locator()` CSS 選擇器找到所有車次列並逐一處理。
 
 ## 輸出範例
 
@@ -157,12 +186,13 @@ browser = p.chromium.launch(headless=True)
 
 這個程式示範了以下 Playwright 技巧：
 
-1. **Cookie 管理**：保存和載入 Cookie
-2. **表單操作**：選擇下拉選單、填入文字欄位
-3. **等待機制**：等待元素出現、等待網路請求完成
-4. **資料抓取**：使用 `locator()` 和 `inner_text()` 抓取資料
-5. **JavaScript 執行**：使用 `evaluate()` 執行 JavaScript 程式碼
-6. **錯誤處理**：使用 `try-except` 處理可能的錯誤
+1. **Browser 與 BrowserContext 概念**：理解實體瀏覽器與獨立上下文（Session）的分離與好處
+2. **Cookie 管理**：保存和載入 Cookie
+3. **表單操作**：選擇下拉選單、填入文字欄位
+4. **等待機制**：等待元素出現、等待網路請求完成
+5. **資料抓取**：使用 `locator()` 和 `inner_text()` 抓取資料
+6. **JavaScript 執行**：使用 `evaluate()` 執行 JavaScript 程式碼
+7. **錯誤處理**：使用 `try-except` 處理可能的錯誤
 
 ## 進階練習
 
