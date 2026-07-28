@@ -1,0 +1,120 @@
+{
+  "project_name": "毛寶企業產品與競品價格每日監控系統",
+  "version": "2.0.0",
+  "platforms": [
+    {
+      "id": "pchome",
+      "name": "PChome 24h"
+    },
+    {
+      "id": "momo",
+      "name": "momo購物網"
+    },
+    {
+      "id": "yahoo",
+      "name": "Yahoo購物中心"
+    }
+  ],
+  "monitor_products": [
+    {
+      "id": "P001",
+      "category": "貼身衣物手洗精",
+      "maobao_product": {
+        "name": "毛寶 貼身衣物手洗精 1000g",
+        "keyword": "毛寶 貼身衣物手洗精"
+      },
+      "competitors": [
+        {
+          "brand": "白蘭",
+          "name": "白蘭 貼身衣物手洗精",
+          "keyword": "白蘭 貼身衣物手洗精"
+        },
+        {
+          "brand": "妙管家",
+          "name": "妙管家 貼身衣物手洗精",
+          "keyword": "妙管家 貼身衣物手洗精"
+        }
+      ]
+    },
+    {
+      "id": "P002",
+      "category": "洗衣槽清潔劑",
+      "maobao_product": {
+        "name": "毛寶 洗衣槽去污劑",
+        "keyword": "毛寶 洗衣槽"
+      },
+      "competitors": [
+        {
+          "brand": "妙管家",
+          "name": "妙管家 洗衣槽專用清潔劑",
+          "keyword": "妙管家 洗衣槽專用清潔劑"
+        },
+        {
+          "brand": "威猛先生",
+          "name": "威猛先生 洗衣槽清潔劑",
+          "keyword": "威猛先生 洗衣槽清潔劑"
+        }
+      ]
+    },
+    {
+      "id": "P003",
+      "category": "洗碗精",
+      "maobao_product": {
+        "name": "毛寶 小蘇打洗碗精",
+        "keyword": "毛寶 小蘇打 洗碗精"
+      },
+      "competitors": [
+        {
+          "brand": "南僑",
+          "name": "南僑水晶 小蘇打洗碗精",
+          "keyword": "南僑水晶 小蘇打洗碗精"
+        },
+        {
+          "brand": "橘子工坊",
+          "name": "橘子工坊 洗碗精",
+          "keyword": "橘子工坊 洗碗精"
+        }
+      ]
+    },
+    {
+      "id": "P004",
+      "category": "冷洗精",
+      "maobao_product": {
+        "name": "毛寶 天然冷洗精",
+        "keyword": "毛寶 冷洗精"
+      },
+      "competitors": [
+        {
+          "brand": "白蘭",
+          "name": "白蘭 冷洗精",
+          "keyword": "白蘭 冷洗精"
+        },
+        {
+          "brand": "妙管家",
+          "name": "妙管家 冷洗精",
+          "keyword": "妙管家 冷洗精"
+        }
+      ]
+    },
+    {
+      "id": "P005",
+      "category": "濃縮洗衣精",
+      "maobao_product": {
+        "name": "毛寶 PM2.5防霾抗菌濃縮洗衣精",
+        "keyword": "毛寶 PM2.5 洗衣精"
+      },
+      "competitors": [
+        {
+          "brand": "白蘭",
+          "name": "白蘭 濃縮洗衣精",
+          "keyword": "白蘭 濃縮洗衣精"
+        },
+        {
+          "brand": "妙管家",
+          "name": "妙管家 濃縮洗衣精",
+          "keyword": "妙管家 濃縮洗衣精"
+        }
+      ]
+    }
+  ]
+}
