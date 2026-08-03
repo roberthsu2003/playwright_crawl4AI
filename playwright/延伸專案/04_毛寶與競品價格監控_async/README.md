@@ -98,7 +98,7 @@ uv run main.py
 ```
 
 ### 2. Markdown 競品日報 (`price_report.md`)
-自動產生標準 GFM 表格，包含商品連結、賣場標示，方便 PM 直接複製發送 Email 或匯入 Notion/Slack 報告。
+自動產生標準 GFM (GitHub Flavored Markdown，即支援表格、自動連結與任務清單的 Markdown 語法) 表格，包含商品連結、賣場標示，方便 PM 直接複製發送 Email 或匯入 Notion/Slack 報告。
 
 ### 3. JSON 詳細數據 (`price_report.json`)
 完整保留時間戳記、耗時與各賣場原始抓取資料，利於後續整合至資料庫或前端 Dashboard 儀表板。
