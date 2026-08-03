@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-02 20:14:12",
-  "elapsed_seconds": 4.55,
+  "timestamp": "2026-08-03 10:52:04",
+  "elapsed_seconds": 3.86,
   "platforms": [
     "PChome 24h",
     "momo購物網",
@@ -17,9 +17,9 @@
         "stores": [
           {
             "platform": "PChome 24h",
-            "title": "貼身衣物手洗精-3D SOUSOU(1000g)",
-            "price": 109,
-            "url": "https://24h.pchome.com.tw/prod/DAAK0M-A900AJ8IM",
+            "title": "貼身衣物手洗精1000gx2入(果漾西西里)",
+            "price": 258,
+            "url": "https://24h.pchome.com.tw/prod/DAAZ7Q-1900FOTV0",
             "status": "成功"
           },
           {
@@ -260,15 +260,15 @@
             {
               "platform": "momo購物網",
               "title": "【Orange house 橘子工坊】蔬果碗盤洗碗精補充包6入(去油淨味/溫和除菌/去垢酵素 三款可選)",
-              "price": 575,
+              "price": 669,
               "url": null,
               "status": "成功"
             },
             {
               "platform": "Yahoo購物中心",
-              "title": "橘子工坊 蔬果碗盤洗碗精補充包-溫和除菌 500ml x12包/箱",
-              "price": 1599,
-              "url": "https://tw.buy.yahoo.com/gdsale/橘子工坊-溫和低敏碗盤洗滌液補充包430ml-x1-7647738.html",
+              "title": "橘子工坊 蔬果碗盤洗碗精補充包-去油淨味 500ml",
+              "price": 169,
+              "url": "https://tw.buy.yahoo.com/gdsale/橘子工坊碗盤洗滌液-竹炭淨味-補充包-500mL-6281884.html",
               "status": "成功"
             }
           ]
@@ -284,9 +284,9 @@
         "stores": [
           {
             "platform": "PChome 24h",
-            "title": "天然環保冷洗精(1000g入)",
-            "price": 110,
-            "url": "https://24h.pchome.com.tw/prod/DAAK25-A900FB785",
+            "title": "抗菌冷洗精-補充包(800g)",
+            "price": 95,
+            "url": "https://24h.pchome.com.tw/prod/DAAK25-A51385189",
             "status": "成功"
           },
           {
@@ -437,8 +437,8 @@
             },
             {
               "platform": "momo購物網",
-              "title": "【妙管家】濃縮洗衣精(薰衣草香)4000g X4瓶(贈:濃縮洗衣精(薰衣草香)4000g X4瓶)",
-              "price": 888,
+              "title": "【Persil】濃縮抗臭酵素洗衣精補充包1500mlx6包(強效去漬/室內晾衣/抗菌防螨/護色薰衣草/天然植純萃)",
+              "price": 999,
               "url": null,
               "status": "成功"
             },
