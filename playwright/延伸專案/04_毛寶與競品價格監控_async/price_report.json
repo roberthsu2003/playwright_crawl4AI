@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-03 10:52:04",
-  "elapsed_seconds": 3.86,
+  "timestamp": "2026-08-03 19:26:43",
+  "elapsed_seconds": 3.01,
   "platforms": [
     "PChome 24h",
     "momo購物網",
@@ -284,9 +284,9 @@
         "stores": [
           {
             "platform": "PChome 24h",
-            "title": "抗菌冷洗精-補充包(800g)",
-            "price": 95,
-            "url": "https://24h.pchome.com.tw/prod/DAAK25-A51385189",
+            "title": "天然環保冷洗精(1000g入)",
+            "price": 110,
+            "url": "https://24h.pchome.com.tw/prod/DAAK25-A900FB785",
             "status": "成功"
           },
           {
@@ -373,9 +373,9 @@
         "stores": [
           {
             "platform": "PChome 24h",
-            "title": "制臭極淨PM2.5洗衣精(2200gX6入)",
-            "price": 659,
-            "url": "https://24h.pchome.com.tw/prod/DAAK25-A900A6RUQ",
+            "title": "除霉防蟎PM2.5洗衣精(2200gX4入)",
+            "price": 476,
+            "url": "https://24h.pchome.com.tw/prod/DAAK9D-1900FACIP",
             "status": "成功"
           },
           {
@@ -437,8 +437,8 @@
             },
             {
               "platform": "momo購物網",
-              "title": "【Persil】濃縮抗臭酵素洗衣精補充包1500mlx6包(強效去漬/室內晾衣/抗菌防螨/護色薰衣草/天然植純萃)",
-              "price": 999,
+              "title": "【妙管家】濃縮洗衣精(薰衣草香)4000g X4瓶(贈:濃縮洗衣精(薰衣草香)4000g X4瓶)",
+              "price": 888,
               "url": null,
               "status": "成功"
             },
